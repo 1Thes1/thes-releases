@@ -1,10 +1,11 @@
 # Thes
 
-**Windows VPN-клиент со split-tunnel** · VLESS / Reality / Hysteria2 · платные и **бесплатные** серверы
+**Windows VPN** · раздельный туннель по сайтам / приложениям **или** полный VPN · VLESS / Reality / Hysteria2 · платные и бесплатные серверы
 
 [![Latest release](https://img.shields.io/github/v/release/1Thes1/thes-releases?label=latest&color=2ea44f)](https://github.com/1Thes1/thes-releases/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/1Thes1/thes-releases/total?color=0969da)](https://github.com/1Thes1/thes-releases/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2010%2F11%20x64-0078d4)](https://github.com/1Thes1/thes-releases/releases/latest)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
 [![Free catalogs](https://img.shields.io/badge/free%20VPN-public%20catalogs-orange)](https://github.com/1Thes1/thes-releases#бесплатные-vpn-серверы)
 
 ---
@@ -19,28 +20,54 @@
 
 ## 🇷🇺 Русский
 
-### Что это
+### Чем Thes отличается
 
-**Thes** — десктопный VPN для Windows на базе [sing-box](https://sing-box.sagernet.org/).  
-Работает с обычными подписками (как Happ): VLESS, Reality, Hysteria2 и др.
+Большинство клиентов гонят **весь** трафик в VPN. Thes заточен под **раздельный** режим:
 
-- **Split-tunnel** — в VPN только выбранные сайты и приложения (YouTube, Discord…), остальное напрямую
-- **Full** — весь трафик через VPN + опциональный kill-switch
-- **Локальный DNS** (как в Happ) — стабильнее Cursor / Discord, меньше обрывов
-- **Бесплатные серверы** — встроенный поиск публичных каталогов + своя бесплатная ссылка
-- Обновления и откат версии прямо из панели
+| | **Раздельный VPN (Split)** | **Полный VPN (Full)** |
+|---|---|---|
+| Что в туннеле | Только выбранные **сайты** и/или **программы** | Весь трафик системы |
+| Остальное | Идёт напрямую (быстрее, родной IP) | Тоже через VPN |
+| Когда удобно | Видео, соцсети, отдельные сервисы — без «тормозов» у всего ПК | Нужна полная маска / всё через ноду |
+| Kill-switch | — | Опционально: блок сети при обрыве |
+
+**Уникально для Thes:**
+
+- **Split по сайтам и приложениям** в одном клиенте — не «весь браузер», а конкретные домены + отдельные exe
+- **Белый / чёрный список программ** — всегда в VPN или всегда мимо (даже в Full)
+- **Локальный DNS** — меньше обрывов, чем у схем «DNS только через прокси»
+- **Бесплатные каталоги** встроены: поиск публичных списков + своя ссылка
+- **Проверка ноды после подключения** — меньше ситуаций «ONLINE, а сайты мёртвые»
+- **Обновление и откат версии** из панели
+- Свои **платные** подписки и **бесплатные** публичные серверы — на выбор
+
+Ядро — [sing-box](https://sing-box.sagernet.org/) (VLESS, Reality, Hysteria2 и др.). Thes не продаёт серверы: нужна своя подписка или бесплатный каталог.
+
+### Режимы VPN
+
+#### 1. Раздельный (Split) — по сайтам и приложениям
+
+В VPN попадает только то, что ты указал:
+
+- **Сайты** — домены популярных сервисов (видео, соцсети, мессенджеры, магазины…), которые добавишь в список  
+- **Приложения** — конкретные программы целиком  
+
+Всё остальное (банки, госуслуги, локальная сеть, обычный интернет) — **напрямую**, без лишней нагрузки на ноду.
+
+#### 2. Полный (Full)
+
+Весь трафик Windows идёт через VPN. Можно включить **kill-switch**, чтобы при падении туннеля трафик не «утекал» мимо.
 
 ### Бесплатные VPN-серверы
 
-В разделе **«Бесплатно»** Thes умеет:
+Вкладка **«Бесплатно»**:
 
-1. **«Найти доступные»** — сам проверяет публичные каталоги (VLESS / Reality / миксы) и показывает, какие сейчас отдают рабочие ноды  
-2. **Подтянуть каталог одним кликом** — список серверов появляется в панели, можно пинговать и подключаться  
-3. **Своя бесплатная ссылка** — вставь URL любой открытой подписки и нажми «Подтянуть»
+1. **«Найти доступные»** — проверка публичных каталогов, какие сейчас отдают рабочие ноды  
+2. **Подтянуть каталог** — список серверов в панели, пинг и подключение  
+3. **Своя бесплатная ссылка** — любой открытый URL подписки  
 
-> ⚠️ Бесплатные ноды — это чужие публичные списки. Они часто медленные, перегруженные или внезапно пропадают.  
-> Для повседневной работы лучше своя платная подписка; бесплатное — чтобы «просто открыть» или попробовать Thes без ключа.  
-> Подключение бесплатного списка **заменит** текущую платную подписку в приложении (пока снова не вставишь свой URL).
+> ⚠️ Публичные ноды часто медленные или пропадают. Для ежедневной работы лучше своя подписка; бесплатное — чтобы попробовать Thes или открыть нужное без ключа.  
+> Импорт бесплатного списка **заменит** текущую подписку в приложении, пока снова не вставишь свой URL.
 
 ### Скачать
 
@@ -49,101 +76,110 @@
 | **Последняя версия** | [Releases → Latest](https://github.com/1Thes1/thes-releases/releases/latest) |
 | **Файл** | `Thes-Setup-x.x.x.exe` |
 | **ОС** | Windows 10 / 11, **x64** |
-| **Права** | Нужен запуск **от администратора** (TUN) |
+| **Права** | Запуск **от администратора** (TUN) |
+| **Лицензия** | [MIT](./LICENSE) |
 
-1. Открой [последний релиз](https://github.com/1Thes1/thes-releases/releases/latest)
-2. Скачай **`Thes-Setup-….exe`**
-3. Установи и согласись с UAC
-4. Вставь ссылку подписки → Обновить → выбери сервер → Подключить
+1. Открой [последний релиз](https://github.com/1Thes1/thes-releases/releases/latest)  
+2. Скачай **`Thes-Setup-….exe`**  
+3. Установи (UAC)  
+4. Подписка **или** «Бесплатно» → сервер → Подключить  
 
-Старые версии (откат) — в [списке релизов](https://github.com/1Thes1/thes-releases/releases).
+Старые сборки: [все релизы](https://github.com/1Thes1/thes-releases/releases).
 
 ### Быстрый старт
 
-1. **Подписка** — URL от провайдера *или* вкладка **Бесплатно** → «Найти доступные»
-2. **Режим Split** — добавь сайты (например `youtube.com`) и/или приложения
-3. **Локальный DNS** — лучше оставить включённым
-4. **Подключить** — кнопка питания
+1. URL провайдера *или* **Бесплатно** → «Найти доступные»  
+2. Режим **Split** → добавь нужные сайты / программы  
+3. **Локальный DNS** лучше оставить включённым  
+4. Подключить  
 
-Настройки хранятся в `%AppData%\Thes` и не сбрасываются при обновлении.
+Настройки: `%AppData%\Thes` (сохраняются при обновлении).
 
 ### Планы обновлений
 
-Уже в свежих релизах: стабильный split, локальный DNS, откат версии, меньше ложных «мёртвых» нод (HY2/Reality), безопаснее автообновление.
+Уже есть: стабильный split / full, локальный DNS, откат версии, меньше ложных «мёртвых» нод, аккуратнее автообновление.
 
-**Ближайшее:**
-- Удобнее бесплатные каталоги (фильтры, меньше подвисаний на 5–7k нод)
-- Ещё стабильнее dial / failover и меньше шума в логах
-- Подпись установщика (меньше ругани SmartScreen), когда появится сертификат
+**Скоро:**
+- Удобнее бесплатные каталоги (фильтры, большие списки без подвисаний)
+- Ещё стабильнее dial / failover
+- Подпись установщика (меньше SmartScreen), когда будет сертификат
 
-**Дальше по желанию:**
-- Улучшенный UI / онбординг
-- Больше пресетов сайтов и приложений
-- Android-клиент (в разработке отдельно)
-- Экспорт/импорт профиля одной кнопкой для друзей
+**Дальше:**
+- Более понятный интерфейс и онбординг
+- Больше готовых пресетов сайтов и приложений
+- Android-клиент (отдельно)
+- Быстрый обмен профилем
 
-Следи за [Releases](https://github.com/1Thes1/thes-releases/releases) — в каждом теге заметки на русском и английском.
+Новости версий: [Releases](https://github.com/1Thes1/thes-releases/releases) (заметки RU + EN).
 
-### Режимы
+### Частые вопросы
 
-| Режим | Поведение |
-|--------|-----------|
-| **Split** | VPN только для выбранных сайтов и приложений |
-| **Full** | Весь трафик через VPN |
-| **Kill-switch** | Только в Full — блок при обрыве туннеля |
+**SmartScreen?** Установщик пока без код-подписи → «Подробнее → Выполнить в любом случае».  
+**Админ?** Да, для TUN.  
+**Логи?** Панель → Настройки → Логи, или `%AppData%\Thes`.  
+**Откат?** Настройки → список версий, или Setup со страницы релизов.  
+**Сайт в Split иногда мимо VPN?** Часто виноват QUIC в браузере — выключи QUIC или проверь домены в списке.
 
-### Типичные вопросы
+### Лицензия
 
-**SmartScreen / антивирус ругается?**  
-Установщик пока без код-подписи. «Подробнее → Выполнить в любом случае», либо добавь исключение. Исходники: [1Thes1/thes](https://github.com/1Thes1/thes) (приватный).
+Программа и материалы этого репозитория распространяются под **[MIT License](./LICENSE)**.  
+Можно использовать, копировать и изменять при сохранении уведомления об авторских правах.  
+Thes **не** предоставляет VPN-серверы; ответственность за выбранную подписку / публичный каталог — на пользователе.
 
-**Нужен админ?**  
-Да. TUN на Windows требует права администратора.
-
-**Где логи?**  
-В панели Thes → Настройки → Логи. Или `%AppData%\Thes`.
-
-**Как откатиться?**  
-Настройки → список версий → выбери старый тег → Установить. Или скачай нужный Setup с [Releases](https://github.com/1Thes1/thes-releases/releases).
-
-**YouTube частично мимо VPN?**  
-Часто виноват QUIC в браузере. Выключи QUIC или пользуйся доменами из списка сайтов в Split.
-
-### Поддержка протоколов
-
-VLESS (+ Reality / Vision), Hysteria2, и другие, которые отдаёт подписка в формате, понятном sing-box.
-
-### Важно
-
-Это репозиторий **только установщиков**. Исходный код — в отдельном приватном репо.  
-Thes не продаёт VPN-серверы: нужна своя подписка / нода.
+Исходный код приложения: [1Thes1/thes](https://github.com/1Thes1/thes) (приватный). Здесь — только установщики.
 
 ---
 
 ## 🇬🇧 English
 
-### What it is
+### What makes Thes different
 
-**Thes** is a Windows VPN client built on [sing-box](https://sing-box.sagernet.org/).  
-Works with common subscription links (Happ-style): VLESS, Reality, Hysteria2, and more.
+Most VPN apps force **everything** through the tunnel. Thes is built for **selective** routing:
 
-- **Split-tunnel** — only selected sites/apps go through the VPN
-- **Full tunnel** — all traffic via VPN, optional kill-switch
-- **Local DNS** (Happ-like) — fewer drops for Cursor / Discord
-- **Free servers** — built-in public catalog discovery + paste your own free URL
-- In-app updates and version rollback
+| | **Split VPN** | **Full VPN** |
+|---|---|---|
+| Through the tunnel | Only selected **sites** and/or **apps** | All system traffic |
+| Everything else | Goes direct (faster, home IP) | Also via VPN |
+| Best for | Video, social, specific services — without slowing the whole PC | Full mask / all traffic on the node |
+| Kill-switch | — | Optional: block if the tunnel drops |
+
+**What stands out:**
+
+- **Split by site and by app** in one client — not “whole browser”, but chosen domains + specific executables  
+- **Always-VPN / always-direct app lists** — even in Full mode  
+- **Local DNS** — fewer drops than “DNS only via proxy” setups  
+- **Built-in free catalogs** — discover public lists or paste your own free URL  
+- **Post-connect dial check** — fewer “ONLINE but sites dead” cases  
+- **Update & rollback** from the panel  
+- Use **paid** subscriptions or **free** public servers  
+
+Core engine: [sing-box](https://sing-box.sagernet.org/) (VLESS, Reality, Hysteria2, …). Thes does not sell servers.
+
+### VPN modes
+
+#### 1. Split — by sites and apps
+
+Only what you select goes through the VPN:
+
+- **Sites** — domains of popular services you add to the list (video, social, messengers, stores…)  
+- **Apps** — entire applications by process  
+
+Everything else (banking, government, LAN, normal browsing) stays **direct**.
+
+#### 2. Full
+
+All Windows traffic uses the VPN. Optional **kill-switch** blocks leaks if the tunnel dies.
 
 ### Free VPN servers
 
-In the **Free** tab Thes can:
+**Free** tab:
 
-1. **“Find available”** — probes public catalogs (VLESS / Reality / mixes) and shows which ones currently return usable nodes  
-2. **One-click import** — pull a catalog into the server list, ping, and connect  
-3. **Your own free link** — paste any open subscription URL and refresh
+1. **“Find available”** — probe public catalogs for live nodes  
+2. **Import a catalog** — servers appear in the list; ping & connect  
+3. **Your own free URL** — any open subscription link  
 
-> ⚠️ Free nodes come from public third-party lists. They are often slow, crowded, or disappear overnight.  
-> Prefer a paid subscription for daily use; free mode is for trying Thes or a quick unblock.  
-> Importing a free list **replaces** the current paid subscription in the app until you paste your URL again.
+> ⚠️ Public nodes are often slow or disappear. Prefer a paid subscription for daily use; free mode is for trying Thes or a quick unblock.  
+> Importing a free list **replaces** the current subscription in the app until you paste your URL again.
 
 ### Download
 
@@ -152,74 +188,50 @@ In the **Free** tab Thes can:
 | **Latest** | [Releases → Latest](https://github.com/1Thes1/thes-releases/releases/latest) |
 | **File** | `Thes-Setup-x.x.x.exe` |
 | **OS** | Windows 10 / 11, **x64** |
-| **Rights** | Must run as **Administrator** (TUN) |
+| **Rights** | Run as **Administrator** (TUN) |
+| **License** | [MIT](./LICENSE) |
 
-1. Open the [latest release](https://github.com/1Thes1/thes-releases/releases/latest)
-2. Download **`Thes-Setup-….exe`**
-3. Install and accept UAC
-4. Paste subscription URL → Refresh → pick a server → Connect
+1. Open the [latest release](https://github.com/1Thes1/thes-releases/releases/latest)  
+2. Download **`Thes-Setup-….exe`**  
+3. Install (UAC)  
+4. Subscription **or** Free tab → connect  
 
 Older builds: [all releases](https://github.com/1Thes1/thes-releases/releases).
 
 ### Quick start
 
-1. Provider subscription URL *or* **Free** tab → “Find available”
-2. Use **Split** and add sites/apps you want behind the VPN
-3. Keep **Local DNS** on unless you know you need remote DoH
-4. Hit Connect
+1. Provider URL *or* **Free** → “Find available”  
+2. **Split** → add sites / apps  
+3. Keep **Local DNS** on  
+4. Connect  
 
-Settings live in `%AppData%\Thes` and survive upgrades.
+Settings: `%AppData%\Thes`.
 
 ### Roadmap
 
-Already shipping: solid split, local DNS, version rollback, fewer false-dead HY2/Reality nodes, safer auto-update.
+Shipping now: solid split / full, local DNS, rollback, fewer false-dead nodes, safer auto-update.
 
-**Soon:**
-- Better free-catalog UX (filters, less freeze on 5–7k node lists)
-- More reliable dial / failover and quieter logs
-- Signed installer (less SmartScreen friction) once a cert is available
+**Soon:** better free-catalog UX, stronger dial / failover, signed installer when a cert is available.  
 
-**Later / maybe:**
-- UI / onboarding polish
-- More site & app presets
-- Android client (separate work in progress)
-- One-click profile share for friends
+**Later:** UI polish, more presets, Android client, easy profile sharing.
 
-Watch [Releases](https://github.com/1Thes1/thes-releases/releases) — each tag has RU + EN notes.
-
-### Modes
-
-| Mode | Behavior |
-|------|----------|
-| **Split** | VPN only for selected sites and apps |
-| **Full** | Everything through the VPN |
-| **Kill-switch** | Full mode only — block traffic if the tunnel dies |
+See [Releases](https://github.com/1Thes1/thes-releases/releases) (RU + EN notes).
 
 ### FAQ
 
-**SmartScreen / antivirus warning?**  
-The installer is not code-signed yet. Use “More info → Run anyway”, or add an exclusion. Source: [1Thes1/thes](https://github.com/1Thes1/thes) (private).
+**SmartScreen?** Not code-signed yet → “More info → Run anyway”.  
+**Admin?** Required for TUN.  
+**Logs?** Settings → Logs, or `%AppData%\Thes`.  
+**Rollback?** In-app version list or Setup from Releases.  
+**Site in Split sometimes bypasses VPN?** Often browser QUIC — disable QUIC or check your domain list.
 
-**Why admin?**  
-Windows TUN requires elevated privileges.
+### License
 
-**Logs?**  
-Thes panel → Settings → Logs, or `%AppData%\Thes`.
+Released under the **[MIT License](./LICENSE)**.  
+Use, copy, and modify with the copyright notice retained.  
+Thes does **not** provide VPN servers; you are responsible for the subscription or public catalog you use.
 
-**Rollback?**  
-Settings → version list → pick an older tag, or grab a Setup from [Releases](https://github.com/1Thes1/thes-releases/releases).
-
-**YouTube sometimes bypasses VPN?**  
-Often browser QUIC. Disable QUIC or rely on domain rules in Split.
-
-### Protocols
-
-VLESS (+ Reality / Vision), Hysteria2, and other outbounds your subscription provides for sing-box.
-
-### Note
-
-This repo ships **installers only**. Application source is private.  
-Thes does not sell VPN servers — bring your own subscription / node.
+App source: [1Thes1/thes](https://github.com/1Thes1/thes) (private). This repo is **installers only**.
 
 ---
 
@@ -229,10 +241,11 @@ Thes does not sell VPN servers — bring your own subscription / node.
 |---|---|
 | **Latest download** | https://github.com/1Thes1/thes-releases/releases/latest |
 | **All versions** | https://github.com/1Thes1/thes-releases/releases |
+| **License** | [MIT](./LICENSE) |
 | **Source (private)** | https://github.com/1Thes1/thes |
 
 ---
 
 <p align="center">
-  <sub>Thes · Windows split-tunnel VPN · sing-box</sub>
+  <sub>Thes · Split by site/app or full tunnel · MIT · Windows</sub>
 </p>
