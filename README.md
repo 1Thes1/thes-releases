@@ -1,10 +1,11 @@
 # Thes
 
-**Windows VPN-клиент со split-tunnel** · VLESS / Reality / Hysteria2 (sing-box)
+**Windows VPN-клиент со split-tunnel** · VLESS / Reality / Hysteria2 · платные и **бесплатные** серверы
 
 [![Latest release](https://img.shields.io/github/v/release/1Thes1/thes-releases?label=latest&color=2ea44f)](https://github.com/1Thes1/thes-releases/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/1Thes1/thes-releases/total?color=0969da)](https://github.com/1Thes1/thes-releases/releases)
 [![Platform](https://img.shields.io/badge/platform-Windows%2010%2F11%20x64-0078d4)](https://github.com/1Thes1/thes-releases/releases/latest)
+[![Free catalogs](https://img.shields.io/badge/free%20VPN-public%20catalogs-orange)](https://github.com/1Thes1/thes-releases#бесплатные-vpn-серверы)
 
 ---
 
@@ -26,7 +27,20 @@
 - **Split-tunnel** — в VPN только выбранные сайты и приложения (YouTube, Discord…), остальное напрямую
 - **Full** — весь трафик через VPN + опциональный kill-switch
 - **Локальный DNS** (как в Happ) — стабильнее Cursor / Discord, меньше обрывов
+- **Бесплатные серверы** — встроенный поиск публичных каталогов + своя бесплатная ссылка
 - Обновления и откат версии прямо из панели
+
+### Бесплатные VPN-серверы
+
+В разделе **«Бесплатно»** Thes умеет:
+
+1. **«Найти доступные»** — сам проверяет публичные каталоги (VLESS / Reality / миксы) и показывает, какие сейчас отдают рабочие ноды  
+2. **Подтянуть каталог одним кликом** — список серверов появляется в панели, можно пинговать и подключаться  
+3. **Своя бесплатная ссылка** — вставь URL любой открытой подписки и нажми «Подтянуть»
+
+> ⚠️ Бесплатные ноды — это чужие публичные списки. Они часто медленные, перегруженные или внезапно пропадают.  
+> Для повседневной работы лучше своя платная подписка; бесплатное — чтобы «просто открыть» или попробовать Thes без ключа.  
+> Подключение бесплатного списка **заменит** текущую платную подписку в приложении (пока снова не вставишь свой URL).
 
 ### Скачать
 
@@ -46,12 +60,29 @@
 
 ### Быстрый старт
 
-1. **Подписка** — вставь URL от провайдера (или импорт `vless://` / `hy2://`)
+1. **Подписка** — URL от провайдера *или* вкладка **Бесплатно** → «Найти доступные»
 2. **Режим Split** — добавь сайты (например `youtube.com`) и/или приложения
 3. **Локальный DNS** — лучше оставить включённым
 4. **Подключить** — кнопка питания
 
 Настройки хранятся в `%AppData%\Thes` и не сбрасываются при обновлении.
+
+### Планы обновлений
+
+Уже в свежих релизах: стабильный split, локальный DNS, откат версии, меньше ложных «мёртвых» нод (HY2/Reality), безопаснее автообновление.
+
+**Ближайшее:**
+- Удобнее бесплатные каталоги (фильтры, меньше подвисаний на 5–7k нод)
+- Ещё стабильнее dial / failover и меньше шума в логах
+- Подпись установщика (меньше ругани SmartScreen), когда появится сертификат
+
+**Дальше по желанию:**
+- Улучшенный UI / онбординг
+- Больше пресетов сайтов и приложений
+- Android-клиент (в разработке отдельно)
+- Экспорт/импорт профиля одной кнопкой для друзей
+
+Следи за [Releases](https://github.com/1Thes1/thes-releases/releases) — в каждом теге заметки на русском и английском.
 
 ### Режимы
 
@@ -99,7 +130,20 @@ Works with common subscription links (Happ-style): VLESS, Reality, Hysteria2, an
 - **Split-tunnel** — only selected sites/apps go through the VPN
 - **Full tunnel** — all traffic via VPN, optional kill-switch
 - **Local DNS** (Happ-like) — fewer drops for Cursor / Discord
+- **Free servers** — built-in public catalog discovery + paste your own free URL
 - In-app updates and version rollback
+
+### Free VPN servers
+
+In the **Free** tab Thes can:
+
+1. **“Find available”** — probes public catalogs (VLESS / Reality / mixes) and shows which ones currently return usable nodes  
+2. **One-click import** — pull a catalog into the server list, ping, and connect  
+3. **Your own free link** — paste any open subscription URL and refresh
+
+> ⚠️ Free nodes come from public third-party lists. They are often slow, crowded, or disappear overnight.  
+> Prefer a paid subscription for daily use; free mode is for trying Thes or a quick unblock.  
+> Importing a free list **replaces** the current paid subscription in the app until you paste your URL again.
 
 ### Download
 
@@ -119,12 +163,29 @@ Older builds: [all releases](https://github.com/1Thes1/thes-releases/releases).
 
 ### Quick start
 
-1. Paste your provider subscription URL (or import `vless://` / `hy2://`)
+1. Provider subscription URL *or* **Free** tab → “Find available”
 2. Use **Split** and add sites/apps you want behind the VPN
 3. Keep **Local DNS** on unless you know you need remote DoH
 4. Hit Connect
 
 Settings live in `%AppData%\Thes` and survive upgrades.
+
+### Roadmap
+
+Already shipping: solid split, local DNS, version rollback, fewer false-dead HY2/Reality nodes, safer auto-update.
+
+**Soon:**
+- Better free-catalog UX (filters, less freeze on 5–7k node lists)
+- More reliable dial / failover and quieter logs
+- Signed installer (less SmartScreen friction) once a cert is available
+
+**Later / maybe:**
+- UI / onboarding polish
+- More site & app presets
+- Android client (separate work in progress)
+- One-click profile share for friends
+
+Watch [Releases](https://github.com/1Thes1/thes-releases/releases) — each tag has RU + EN notes.
 
 ### Modes
 
