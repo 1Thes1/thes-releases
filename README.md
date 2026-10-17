@@ -1,118 +1,109 @@
 # Thes
 
-**Thes** — Windows VPN (sing-box): split по сайтам/приложениям или полный туннель.
+[![Latest release](https://img.shields.io/github/v/release/1Thes1/thes-releases?label=latest&color=2fd3a2)](https://github.com/1Thes1/thes-releases/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/1Thes1/thes-releases/total?label=downloads&color=66c0f4)](https://github.com/1Thes1/thes-releases/releases)
+[![Platform](https://img.shields.io/badge/Windows-10%20%2F%2011-0078D4?logo=windows&logoColor=white)](https://github.com/1Thes1/thes-releases/releases/latest)
+[![Core](https://img.shields.io/badge/core-sing--box-orange)](docs/public/OPEN-SOURCE.md)
 
-**Thes** is a Windows VPN client (sing-box): split by site/app or full tunnel.
+**Thes** — клиент VPN для Windows: пускает в туннель только нужные сайты и программы (**split**) или весь трафик (**full**). Ядро — **sing-box**, оболочка — **Electron**.
+
+**Thes** is a Windows VPN client: tunnel only selected sites/apps (**split**) or everything (**full**). Core: **sing-box**, shell: **Electron**.
 
 | | |
 |---|---|
-| **Установщики / Installers** | [Releases](https://github.com/1Thes1/thes-releases/releases/latest) |
-| **Платформа** | Windows 10/11 · запуск **от администратора** (TUN) |
-| **Данные** | `%AppData%\Thes\` (сохраняются при обновлении) |
-| **Прозрачность** | [Что внутри](docs/public/INSIDE.md) · [Архитектура](docs/public/ARCHITECTURE.md) · [OSS](docs/public/OPEN-SOURCE.md) · [Privacy](docs/public/PRIVACY.md) |
-
-Исходный код **приложения Thes приватный**. Здесь — публичные Setup.exe, гайды и описание «что внутри», чтобы было понятно, из чего собран клиент (Electron + sing-box и т.д.).
-
-Thes **application source is private**. This repo ships Setup.exe, user guides, and transparency docs (stack, architecture, open-source credits) — not the app source tree.
+| **Скачать** | [**Thes-Setup (latest)**](https://github.com/1Thes1/thes-releases/releases/latest) |
+| **Что это** | VPN-клиент под вашу подписку Happ / Enot / совместимую панель |
+| **Не это** | Не VPN-провайдер — серверы и трафик от вашей подписки |
+| **Данные** | `%AppData%\Thes\` — настройки не сгорают при обновлении |
+| **Исходники** | Приватные; здесь — Setup + понятные доки «что внутри» |
 
 ---
 
-## Русский
+## За 1 минуту / 1-minute start
 
-### Быстрый старт
+1. Скачай **[Thes-Setup-*.exe](https://github.com/1Thes1/thes-releases/releases/latest)** → установи.
+2. Запусти **от имени администратора** (нужно для TUN).
+3. Вкладка **Подписки** → вставь ссылку Happ/Enot → **Подтянуть**.
+4. Выбери страну или сервер → **Подключить**.
+5. Если мешает **Happ** — **Закрыть мешающий VPN** (или трей Happ → Выход). Два TUN вместе ломают Wi‑Fi.
 
-1. Скачай `Thes-Setup-*.exe` из [Releases](https://github.com/1Thes1/thes-releases/releases/latest).
-2. Установи и запусти **от имени администратора**.
-3. **Подписки** → вставь ссылку Happ/Enot → **Подтянуть**.
-4. Выбери страну/сервер → **Подключить**.
-5. Если мешает Happ — кнопка **Закрыть мешающий VPN** (или трей Happ → Выход).
+```
+Setup.exe  →  Админ  →  Подписка  →  Подключить
+```
 
-### Возможности
+---
 
-- **Split / Full** — VPN для выбранных сайтов и программ, или весь трафик
-- Подписки Happ / Enot и совместимые панели + HWID
-- Бесплатные каталоги нод с авто-failover
-- Локальный DNS (как Happ) — стабильнее домашний Wi‑Fi
-- Детект конфликтов (Happ, WARP, Clash…) и закрытие мешающего VPN
-- Игры (бета), Twitch Drops
-- Обновления прямо из этого репозитория
+## Что умеет / Features
 
-### Важно про Happ
+| | RU | EN |
+|---|----|----|
+| Режимы | Split (сайты + `.exe`) или Full + опциональный kill-switch | Split or Full + optional kill-switch |
+| Подписки | Happ / Enot / панели + HWID | Happ / Enot / panels + HWID |
+| Сеть | Локальный DNS (бережнее к домашнему Wi‑Fi), failover нод | Local DNS (Wi‑Fi friendly), node failover |
+| Конфликты | Детект Happ, WARP, Clash… и кнопка закрыть | Detects Happ, WARP, Clash… one-click close |
+| Лабы | Игры (Steam/Epic), Twitch Drops (бета) | Games (Steam/Epic), Twitch Drops (beta) |
+| Обновления | Из этого репозитория | From this repository |
 
-Не запускай Thes и Happ одновременно: два туннеля ломают домашний Wi‑Fi и DNS. Закрой Happ полностью (трей → Выход) или используй кнопку в Thes.
+Подробнее: [FEATURES.md](docs/FEATURES.md) · [Что внутри](docs/public/INSIDE.md)
+
+---
+
+## Мини-инструкция / Mini guide
+
+### Split (рекомендуется дома)
+
+1. Режим **Split** в настройках.
+2. Добавь сайты (например `youtube.com`) и/или программы (`discord.exe`).
+3. Подключись — в VPN только они, остальное напрямую.
+
+### Full
+
+1. Режим **Full** — весь трафик через ноду.
+2. Kill-switch — по желанию (строже, но жёстче к сети).
+
+### После обновления
+
+Настройки остаются в `%AppData%\Thes\`. Новый Setup ставится поверх.
 
 ### Типичные проблемы
 
-| Симптом | Решение |
-|--------|---------|
-| TUN не работает / «без прав» | Запуск от администратора |
-| Конфликт Happ | Закрыть мешающий VPN / Выход из Happ |
-| Нет стран в списке | HWID в Настройках + обновить подписку |
-| После обновления настройки на месте | Да — они в `%AppData%\Thes\` |
+| Симптом | Что сделать |
+|--------|-------------|
+| «Нужны права» / TUN не встаёт | Запуск **от администратора** |
+| Нет стран / пустой список | HWID в Настройках → снова **Подтянуть** подписку |
+| Интернет/Wi‑Fi «поплыл» | Закрой Happ полностью, в Thes — «Закрыть мешающий VPN» |
+| SmartScreen ругается | Обычный unsigned Setup — «Подробнее» → выполнить всё равно |
 
-### Документация
-
-| | |
-|---|---|
-| [Индекс](docs/public/INDEX.md) | Все публичные страницы |
-| [Что внутри](docs/public/INSIDE.md) | Стек, данные, обновления |
-| [Архитектура](docs/public/ARCHITECTURE.md) | Схема без исходников |
-| [Open-source](docs/public/OPEN-SOURCE.md) | sing-box, Electron, лицензии |
-| [Privacy](docs/public/PRIVACY.md) | Локальные данные и сеть |
-| [Возможности](docs/FEATURES.md) | Полный список RU+EN |
-| [Гайд](docs/ru/GUIDE.md) | Руководство пользователя |
+Полные гайды: [RU](docs/ru/GUIDE.md) · [EN](docs/en/GUIDE.md)
 
 ---
 
-## English
+## Прозрачность / Transparency
 
-### Quick start
+Исходники клиента **не** публикуются. Зато открыто написано, из чего собран продукт:
 
-1. Download `Thes-Setup-*.exe` from [Releases](https://github.com/1Thes1/thes-releases/releases/latest).
-2. Install and run **as Administrator**.
-3. **Subscriptions** → paste Happ/Enot URL → pull.
-4. Pick a country/server → **Connect**.
-5. If Happ conflicts — **Close conflicting VPN** (or Happ tray → Exit).
+| Документ | Содержание |
+|----------|------------|
+| [INSIDE](docs/public/INSIDE.md) | Стек, режимы, что на диске, обновления |
+| [ARCHITECTURE](docs/public/ARCHITECTURE.md) | Схема без исходников |
+| [OPEN-SOURCE](docs/public/OPEN-SOURCE.md) | Electron, Chromium, sing-box и лицензии |
+| [PRIVACY](docs/public/PRIVACY.md) | Локальные данные и куда ходит сеть |
+| [INDEX](docs/public/INDEX.md) | Все публичные страницы |
 
-### Features
-
-- **Split / Full** — selected sites/apps, or all traffic
-- Happ / Enot (and compatible) subscriptions + HWID
-- Free node catalogs with auto-failover
-- Local DNS (Happ-like) for stable home Wi‑Fi
-- Conflict detection (Happ, WARP, Clash…) and one-click close
-- Games (beta), Twitch Drops
-- In-app updates from this repo
-
-### About Happ
-
-Do not run Thes and Happ together: dual TUN breaks home Wi‑Fi and DNS. Fully quit Happ (tray → Exit) or use the button in Thes.
-
-### Troubleshooting
-
-| Symptom | Fix |
-|--------|-----|
-| TUN / “no admin” | Run as Administrator |
-| Happ conflict | Close conflicting VPN / Exit Happ |
-| Empty country list | Set HWID + refresh subscription |
-| Settings after update | Kept in `%AppData%\Thes\` |
-
-### Docs
-
-| | |
-|---|---|
-| [Index](docs/public/INDEX.md) | All public pages |
-| [What’s inside](docs/public/INSIDE.md) | Stack, data, updates |
-| [Architecture](docs/public/ARCHITECTURE.md) | Design without source |
-| [Open-source](docs/public/OPEN-SOURCE.md) | sing-box, Electron, licenses |
-| [Privacy](docs/public/PRIVACY.md) | Local data & network |
-| [Features](docs/FEATURES.md) | Full RU+EN list |
-| [Guide](docs/en/GUIDE.md) | User guide |
+В установке видно `sing-box.exe` и Electron/Chromium license-файлы — это нормально для такого стека.
 
 ---
 
-## Latest release
+## Релизы / Releases
 
-https://github.com/1Thes1/thes-releases/releases/latest
+- Актуальная версия: **[Releases → Latest](https://github.com/1Thes1/thes-releases/releases/latest)**
+- Счётчик скачиваний на бейдже выше (сумма по всем `Thes-Setup-*.exe` в Releases)
+- Описание каждого релиза — **на русском и английском**
 
-**License:** MIT applies to the **public materials** in this repository (docs and release packaging notes). The Thes application **source code** remains private and is not licensed by this file. Bundled third-party components (Electron, Chromium, sing-box, …) keep their **own** licenses — see [docs/public/OPEN-SOURCE.md](docs/public/OPEN-SOURCE.md).
+---
+
+## Лицензия / License
+
+MIT — на **публичные материалы** этого репозитория (доки, оформление релизов).  
+Исходники приложения Thes — **private**.  
+Сторонние компоненты (Electron, Chromium, sing-box…) — **свои** лицензии: [OPEN-SOURCE.md](docs/public/OPEN-SOURCE.md).
