@@ -5,13 +5,14 @@
 [![Platform](https://img.shields.io/badge/Windows-10%20%2F%2011-0078D4?logo=windows&logoColor=white)](https://github.com/1Thes1/thes-releases/releases/latest)
 [![Core](https://img.shields.io/badge/core-sing--box-orange)](docs/public/OPEN-SOURCE.md)
 
-**Thes** — клиент VPN для Windows: пускает в туннель только нужные сайты и программы (**split**) или весь трафик (**full**). Ядро — **sing-box**, оболочка — **Electron**.
+**Thes** — клиент VPN для Windows: пускает в туннель только нужные сайты и программы (**split**), весь трафик (**TUN**) или работает через системный прокси (**Прокси**). Ядро — **sing-box**, оболочка — **Electron**.
 
-**Thes** is a Windows VPN client: tunnel only selected sites/apps (**split**) or everything (**full**). Core: **sing-box**, shell: **Electron**.
+**Thes** is a Windows VPN client: tunnel only selected sites/apps (**split**), everything (**TUN**) or system proxy only (**Proxy**). Core: **sing-box**, shell: **Electron**.
 
 | | |
 |---|---|
 | **Скачать** | [**Thes-Setup (latest)**](https://github.com/1Thes1/thes-releases/releases/latest) |
+| **Как пользоваться** | [**Вики: установка, настройка, Split, Drops, частые проблемы**](https://github.com/1Thes1/thes-releases/wiki) |
 | **Что это** | VPN-клиент под вашу подписку Happ / Enot / совместимую панель |
 | **Не это** | Не VPN-провайдер — серверы и трафик от вашей подписки |
 | **Данные** | `%AppData%\Thes\` — настройки не сгорают при обновлении |
@@ -37,7 +38,7 @@ Setup.exe  →  Админ  →  Подписка  →  Подключить
 
 | | RU | EN |
 |---|----|----|
-| Режимы | Split (сайты + `.exe`) или Full + опциональный kill-switch | Split or Full + optional kill-switch |
+| Режимы | Split (сайты + программы), TUN + опциональный kill-switch, Прокси без TUN | Split, TUN + optional kill-switch, Proxy without TUN |
 | Подписки | Happ / Enot / панели + HWID | Happ / Enot / panels + HWID |
 | Сеть | Локальный DNS (бережнее к домашнему Wi‑Fi), failover нод | Local DNS (Wi‑Fi friendly), node failover |
 | Конфликты | Детект Happ, WARP, Clash… и кнопка закрыть | Detects Happ, WARP, Clash… one-click close |
@@ -52,14 +53,16 @@ Setup.exe  →  Админ  →  Подписка  →  Подключить
 
 ### Split (рекомендуется дома)
 
-1. Режим **Split** в настройках.
-2. Добавь сайты (например `youtube.com`) и/или программы (`discord.exe`).
-3. Подключись — в VPN только они, остальное напрямую.
+1. Вкладка **Split** → режим **Split · сайты/программы**.
+2. Добавь сайты (например `youtube.com`) и программы — или просто перетащи ярлык программы в зону «Перетащи ярлык или .exe сюда».
+3. Подключись — в VPN только они, остальное напрямую. Вкладка **Через VPN** показывает, какие программы реально идут через туннель.
 
-### Full
+### TUN / Прокси
 
-1. Режим **Full** — весь трафик через ноду.
-2. Kill-switch — по желанию (строже, но жёстче к сети).
+1. **TUN · весь трафик** — весь трафик через ноду; kill-switch по желанию (Настройки → Надёжность).
+2. **Прокси · без TUN** — только системный прокси Windows, самый щадящий режим для домашнего Wi‑Fi.
+
+Подробные инструкции: **[вики](https://github.com/1Thes1/thes-releases/wiki)**.
 
 ### После обновления
 
@@ -74,7 +77,7 @@ Setup.exe  →  Админ  →  Подписка  →  Подключить
 | Интернет/Wi‑Fi «поплыл» | Закрой Happ полностью, в Thes — «Закрыть мешающий VPN» |
 | SmartScreen ругается | Обычный unsigned Setup — «Подробнее» → выполнить всё равно |
 
-Полные гайды: [RU](docs/ru/GUIDE.md) · [EN](docs/en/GUIDE.md)
+Полные гайды: [вики](https://github.com/1Thes1/thes-releases/wiki) · [Частые проблемы](https://github.com/1Thes1/thes-releases/wiki/Частые-проблемы) · [RU](docs/ru/GUIDE.md) · [EN](docs/en/GUIDE.md)
 
 ---
 
