@@ -1,0 +1,16 @@
+name: Идея / Feature request
+description: Предложить новую функцию или улучшение
+labels: [enhancement]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: Что хочется
+      description: Опиши идею и зачем она нужна
+    validations:
+      required: true
+  - type: textarea
+    id: now
+    attributes:
+      label: Как сейчас
+      description: Как ты решаешь это сейчас (если решаешь)

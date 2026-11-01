@@ -1,0 +1,45 @@
+name: Ошибка / Bug
+description: Что-то не работает в Thes
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Сначала загляни в [Частые проблемы](https://github.com/1Thes1/thes-releases/wiki/Частые-проблемы) — там решения самых частых случаев.
+  - type: input
+    id: version
+    attributes:
+      label: Версия Thes
+      description: Настройки → О программе
+      placeholder: "1.0.87"
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Режим
+      options:
+        - Split · сайты/программы
+        - TUN · весь трафик
+        - Прокси · без TUN
+        - Не важно / Drops / Игры
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: Что случилось
+      description: Что делал, что ожидал и что получилось
+    validations:
+      required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: Лог
+      description: Настройки → Лог → Скопировать. Убери ссылку подписки, если она там есть.
+      render: text
+  - type: input
+    id: os
+    attributes:
+      label: Windows
+      placeholder: "Windows 11 23H2"

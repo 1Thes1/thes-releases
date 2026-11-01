@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Вики — как установить и настроить
+    url: https://github.com/1Thes1/thes-releases/wiki
+    about: Установка, подключение, Split, Drops, частые проблемы
+  - name: Вопрос / обсуждение
+    url: https://github.com/1Thes1/thes-releases/discussions
+    about: Вопросы по использованию и обмен опытом
